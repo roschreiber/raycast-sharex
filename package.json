@@ -12,14 +12,41 @@
       "type": "file",
       "title": "ShareX's Executable Path",
       "description": "This should be the path to your ShareX.exe file.",
-      "default": "C:\\Program Files\\ShareX\\ShareX.exe"
+      "default": "C:\\Program Files\\ShareX\\ShareX.exe",
+      "required": false
+    },
+    {
+      "name": "useContentViewer",
+      "type": "checkbox",
+      "label": "Use Content Viewer?",
+      "description": "The Content Viewer is basically a preview that appears whenever you upload something from your Clipboard. Check this to enable it.",
+      "default": true,
+      "required": false
     }
   ],
   "commands": [
     {
-      "name": "capture-fullscreen",
-      "title": "Capture Fullscreen",
-      "description": "Capture the entire screen using ShareX.",
+      "name": "captureFullScreen",
+      "title": "Capture Full Screen",
+      "description": "Capture your entire screen.",
+      "mode": "no-view"
+    },
+    {
+      "name": "captureRegion",
+      "title": "Capture Region",
+      "description": "Capture a selected region of your screen.",
+      "mode": "no-view"
+    },
+    {
+      "name": "captureActiveWindow",
+      "title": "Capture Active Window",
+      "description": "Capture the currently active window. Running this from Raycast will minimize Raycast first.",
+      "mode": "no-view"
+    },
+    {
+      "name": "uploadClipboard",
+      "title": "Upload Clipboard",
+      "description": "Uploads the content of your clipboard to your selected image host in ShareX.",
       "mode": "no-view"
     }
   ],
