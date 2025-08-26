@@ -13,13 +13,29 @@
       "title": "ShareX's Executable Path",
       "description": "This should be the path to your ShareX.exe file.",
       "default": "C:\\Program Files\\ShareX\\ShareX.exe",
-      "required": false
+      "required": true
     },
     {
       "name": "useContentViewer",
       "type": "checkbox",
       "label": "Use Content Viewer?",
       "description": "The Content Viewer is basically a preview that appears whenever you upload something from your Clipboard. Check this to enable it.",
+      "default": true,
+      "required": false
+    },
+    {
+      "name": "screenColorPicker",
+      "type": "checkbox",
+      "label": "Use Color Picker GUI?",
+      "description": "ShareX has either a 'quick' color picker or a GUI. Check this to enable the GUI.",
+      "default": false,
+      "required": false
+    },
+    {
+      "name": "useRaycastForms",
+      "type": "checkbox",
+      "label": "Use Raycast's instead of ShareX's File Picker?",
+      "description": "Enable this if you want to use Raycast's forms as a file picker instead of the ShareX GUI.",
       "default": true,
       "required": false
     }
@@ -44,15 +60,52 @@
       "mode": "no-view"
     },
     {
+      "name": "recordScreen",
+      "title": "Record Screen",
+      "description": "Starts / stops a screen recording.",
+      "mode": "no-view"
+    },
+    {
       "name": "uploadClipboard",
       "title": "Upload Clipboard",
       "description": "Uploads the content of your clipboard to your selected image host in ShareX.",
       "mode": "no-view"
+    },
+    {
+      "name": "colorPicker",
+      "title": "Color Picker",
+      "description": "Opens ShareX's color picker.",
+      "mode": "no-view"
+    },
+    {
+      "name": "ruler",
+      "title": "Ruler",
+      "description": "Opens ShareX's digital ruler.",
+      "mode": "no-view"
+    },
+    {
+      "name": "openHistory",
+      "title": "Open History",
+      "description": "Opens ShareX's history.",
+      "mode": "no-view"
+    },
+    {
+      "name": "openShareX",
+      "title": "Open ShareX",
+      "description": "Opens ShareX.",
+      "mode": "no-view"
+    },
+    {
+      "name": "metadata",
+      "title": "View Metadata",
+      "description": "Views the metadata of a file.",
+      "mode": "view"
     }
   ],
   "dependencies": {
     "@raycast/api": "^1.101.1",
-    "@raycast/utils": "^1.17.0"
+    "@raycast/utils": "^1.17.0",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^2.0.4",

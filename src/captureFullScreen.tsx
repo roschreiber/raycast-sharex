@@ -1,4 +1,4 @@
-import { getPreferenceValues, showToast, Toast } from "@raycast/api";
+import { closeMainWindow, getPreferenceValues, showToast, Toast } from "@raycast/api";
 import { execFile } from "child_process";
 
 type Preferences = { sharexPath: string };
@@ -10,7 +10,7 @@ export default async function Command() {
     await showToast({ style: Toast.Style.Failure, title: "ShareX path not set" });
     return;
   }
-
+  await closeMainWindow();
   execFile(sharexPath, ["-PrintScreen"], (error) => {
     if (error) {
       showToast({ style: Toast.Style.Failure, title: "Error running sharex", message: error.message });
