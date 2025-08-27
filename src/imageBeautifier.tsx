@@ -13,7 +13,7 @@ if (useRaycastForms) {
       actions={
         <ActionPanel>
           <Action.SubmitForm
-            title="View Metadata in ShareX"
+            title="Upload File through ShareX"
             onSubmit={(values: { files?: string[] }) => {
               const file = values.files?.[0];
 
@@ -32,15 +32,17 @@ if (useRaycastForms) {
                 return;
               }
 
-              showToast({ style: Toast.Style.Animated, title: "Opening metadata..." });
-              execFile(sharexPath, ["-Metadata", file], (error) => {
+              showToast({ style: Toast.Style.Animated, title: "Uploading file..." });
+              execFile(sharexPath, ["-ImageBeautifier", file], (error) => {
                 if (error) {
                   showToast({
                     style: Toast.Style.Failure,
                     title: "Error running ShareX",
                     message: error.message,
                   });
-                } 
+                } else {
+                  showToast({ style: Toast.Style.Success, title: "File uploaded! Check your clipboard." });
+                }
               });
             }}
           />
@@ -55,15 +57,17 @@ if (useRaycastForms) {
       showToast({ style: Toast.Style.Failure, title: "ShareX path not set" });
       return;
     }
-    showToast({ style: Toast.Style.Animated, title: "Opening metadata..." });
-    execFile(sharexPath, ["-Metadata"], (error) => {
+    showToast({ style: Toast.Style.Animated, title: "Uploading file..." });
+    execFile(sharexPath, ["-ImageBeautifier"], (error) => {
       if (error) {
         showToast({
           style: Toast.Style.Failure,
           title: "Error running ShareX",
           message: error.message,
         });
-      } 
+      } else {
+        showToast({ style: Toast.Style.Success, title: "File uploaded! Check your clipboard." });
+      }
     });
   }
-}
+}   

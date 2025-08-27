@@ -16,6 +16,14 @@
       "required": true
     },
     {
+      "name": "useRaycastForms",
+      "type": "checkbox",
+      "label": "Use Raycast's instead of ShareX's File Picker?",
+      "description": "Enable this if you want to use Raycast's forms as a file picker instead of the ShareX GUI.",
+      "default": true,
+      "required": false
+    },
+    {
       "name": "useContentViewer",
       "type": "checkbox",
       "label": "Use Content Viewer?",
@@ -29,14 +37,6 @@
       "label": "Use Color Picker GUI?",
       "description": "ShareX has either a 'quick' color picker or a GUI. Check this to enable the GUI.",
       "default": false,
-      "required": false
-    },
-    {
-      "name": "useRaycastForms",
-      "type": "checkbox",
-      "label": "Use Raycast's instead of ShareX's File Picker?",
-      "description": "Enable this if you want to use Raycast's forms as a file picker instead of the ShareX GUI.",
-      "default": true,
       "required": false
     }
   ],
@@ -70,6 +70,12 @@
       "title": "Upload Clipboard",
       "description": "Uploads the content of your clipboard to your selected image host in ShareX.",
       "mode": "no-view"
+    },
+    {
+      "name": "uploadFile",
+      "title": "Upload File",
+      "description": "Uploads a file through ShareX.",
+      "mode": "view"
     },
     {
       "name": "colorPicker",

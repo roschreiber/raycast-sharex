@@ -1,4 +1,4 @@
-import { closeMainWindow, getPreferenceValues, showToast, Toast, WindowManagement } from "@raycast/api";
+import { closeMainWindow, getPreferenceValues, showToast, Toast } from "@raycast/api";
 import { execFile } from "child_process";
 
 type Preferences = { sharexPath: string };
