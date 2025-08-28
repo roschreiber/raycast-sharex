@@ -106,6 +106,36 @@
       "title": "View Metadata",
       "description": "Views the metadata of a file.",
       "mode": "view"
+    },
+    {
+      "name": "imageEditor",
+      "title": "Open image editor",
+      "description": "Opens ShareX's built in image editor.",
+      "mode": "view"
+    },
+    {
+      "name": "imageBeautifier",
+      "title": "Open image beautifier",
+      "description": "Opens ShareX's image beautifier.",
+      "mode": "view"
+    },
+    {
+      "name": "openScreenshotsFolder",
+      "title": "Open Screenshots Folder",
+      "description": "Opens the Screenshots folder defined in ShareX.",
+      "mode": "no-view"
+    },
+    {
+      "name": "monitorTest",
+      "title": "Monitor Test",
+      "description": "Opens ShareX's monitor test.",
+      "mode": "no-view"
+    },
+    {
+      "name": "inspectWindow",
+      "title": "Inspect Window",
+      "description": "Opens ShareX's window inspector.",
+      "mode": "no-view"
     }
   ],
   "dependencies": {

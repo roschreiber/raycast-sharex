@@ -27,11 +27,6 @@ if (useRaycastForms) {
                 return;
               }
 
-              if (!fs.existsSync(file) || !fs.lstatSync(file).isFile()) {
-                showToast({ style: Toast.Style.Failure, title: "Invalid file", message: "Please pick a valid file." });
-                return;
-              }
-
               showToast({ style: Toast.Style.Animated, title: "Uploading file..." });
               execFile(sharexPath, ["-FileUpload", file], (error) => {
                 if (error) {

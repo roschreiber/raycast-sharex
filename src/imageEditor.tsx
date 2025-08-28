@@ -13,7 +13,7 @@ if (useRaycastForms) {
       actions={
         <ActionPanel>
           <Action.SubmitForm
-            title="Upload File through ShareX"
+            title="Open file in image editor"
             onSubmit={(values: { files?: string[] }) => {
               const file = values.files?.[0];
 
@@ -27,13 +27,8 @@ if (useRaycastForms) {
                 return;
               }
 
-              if (!fs.existsSync(file) || !fs.lstatSync(file).isFile()) {
-                showToast({ style: Toast.Style.Failure, title: "Invalid file", message: "Please pick a valid file." });
-                return;
-              }
-
-              showToast({ style: Toast.Style.Animated, title: "Uploading file..." });
-              execFile(sharexPath, ["-FileUpload", file], (error) => {
+              showToast({ style: Toast.Style.Animated, title: "Opening image editor..." });
+              execFile(sharexPath, ["-ImageEditor", file], (error) => {
                 if (error) {
                   showToast({
                     style: Toast.Style.Failure,
@@ -41,7 +36,7 @@ if (useRaycastForms) {
                     message: error.message,
                   });
                 } else {
-                  showToast({ style: Toast.Style.Success, title: "File uploaded! Check your clipboard." });
+                  showToast({ style: Toast.Style.Success, title: "Image editor opened" });
                 }
               });
             }}
@@ -57,8 +52,8 @@ if (useRaycastForms) {
       showToast({ style: Toast.Style.Failure, title: "ShareX path not set" });
       return;
     }
-    showToast({ style: Toast.Style.Animated, title: "Uploading file..." });
-    execFile(sharexPath, ["-FileUpload"], (error) => {
+    showToast({ style: Toast.Style.Animated, title: "Opening image editor..." });
+    execFile(sharexPath, ["-ImageEditor"], (error) => {
       if (error) {
         showToast({
           style: Toast.Style.Failure,
@@ -66,7 +61,7 @@ if (useRaycastForms) {
           message: error.message,
         });
       } else {
-        showToast({ style: Toast.Style.Success, title: "File uploaded! Check your clipboard." });
+        showToast({ style: Toast.Style.Success, title: "Image editor opened" });
       }
     });
   }

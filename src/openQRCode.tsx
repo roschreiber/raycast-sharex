@@ -1,21 +1,64 @@
-import { closeMainWindow, getPreferenceValues, showToast, Toast } from "@raycast/api";
+import { ActionPanel, Action, Form, getPreferenceValues, showToast, Toast } from "@raycast/api";
 import { execFile } from "child_process";
+import fs from "fs";
 
-type Preferences = { sharexPath: string };
+type Preferences = { sharexPath: string; useRaycastForms: boolean };
 
-export default async function Command() {
-  const { sharexPath } = getPreferenceValues<Preferences>();
+export default function Command() {
+  const { sharexPath, useRaycastForms } = getPreferenceValues<Preferences>();
 
-  if (!sharexPath) {
-    await showToast({ style: Toast.Style.Failure, title: "ShareX path not set" });
-    return;
-  }
-  await closeMainWindow();
-  execFile(sharexPath, ["-QRCode"], (error) => {
-    if (error) {
-      showToast({ style: Toast.Style.Failure, title: "Error running sharex", message: error.message });
-    } else {
-      showToast({ style: Toast.Style.Success, title: "opened ShareX" });
+if (useRaycastForms) {
+  return (
+    <Form
+      actions={
+        <ActionPanel>
+          <Action.SubmitForm
+            title="Open QR code in ShareX"
+            onSubmit={(values: { files?: string[] }) => {
+              const file = values.files?.[0];
+
+              if (!sharexPath) {
+                showToast({ style: Toast.Style.Failure, title: "ShareX path not set" });
+                return;
+              }
+
+              if (!file) {
+                showToast({ style: Toast.Style.Failure, title: "No file selected" });
+                return;
+              }
+
+              showToast({ style: Toast.Style.Animated, title: "Opening QR code GUI..." });
+              execFile(sharexPath, ["-QRCode", file], (error) => {
+                if (error) {
+                  showToast({
+                    style: Toast.Style.Failure,
+                    title: "Error running ShareX",
+                    message: error.message,
+                  });
+                } 
+              });
+            }}
+          />
+        </ActionPanel>  
+      }
+    >
+      <Form.FilePicker id="files" title="Pick a File" allowMultipleSelection={false} />
+    </Form>
+  );
+  } else {
+    if (!sharexPath) {
+      showToast({ style: Toast.Style.Failure, title: "ShareX path not set" });
+      return;
     }
-  });
+    showToast({ style: Toast.Style.Animated, title: "Opening QR code GUI..." });
+    execFile(sharexPath, ["-QRCode"], (error) => {
+      if (error) {
+        showToast({
+          style: Toast.Style.Failure,
+          title: "Error running ShareX",
+          message: error.message,
+        });
+      } 
+    });
+  }
 }
