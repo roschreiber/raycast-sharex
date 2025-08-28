@@ -6,6 +6,9 @@
   "icon": "extension-icon.png",
   "author": "roschreiber",
   "license": "MIT",
+  "platforms": [
+    "Windows"
+  ],
   "preferences": [
     {
       "name": "sharexPath",
