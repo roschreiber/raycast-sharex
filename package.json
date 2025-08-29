@@ -139,6 +139,12 @@
       "title": "Inspect Window",
       "description": "Opens ShareX's window inspector.",
       "mode": "no-view"
+    },
+    {
+      "name": "openClipboardViewer",
+      "title": "Open Clipboard Viewer",
+      "description": "Opens ShareX's clipboard viewer.",
+      "mode": "no-view"
     }
   ],
   "dependencies": {

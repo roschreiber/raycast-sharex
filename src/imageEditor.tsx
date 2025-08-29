@@ -1,6 +1,6 @@
-import { ActionPanel, Action, Form, getPreferenceValues, showToast, Toast } from "@raycast/api";
+import { ActionPanel, Action, Form, getPreferenceValues, showToast, Toast, closeMainWindow, popToRoot } from "@raycast/api";
 import { execFile } from "child_process";
-import fs from "fs";
+import fs, { close } from "fs";
 
 type Preferences = { sharexPath: string; useRaycastForms: boolean };
 
@@ -62,6 +62,8 @@ if (useRaycastForms) {
         });
       } else {
         showToast({ style: Toast.Style.Success, title: "Image editor opened" });
+        closeMainWindow();
+        popToRoot();  
       }
     });
   }

@@ -1,4 +1,4 @@
-import { ActionPanel, Action, Form, getPreferenceValues, showToast, Toast } from "@raycast/api";
+import { ActionPanel, Action, Form, getPreferenceValues, showToast, Toast, closeMainWindow, popToRoot } from "@raycast/api";
 import { execFile } from "child_process";
 import fs from "fs";
 
@@ -62,6 +62,8 @@ if (useRaycastForms) {
         });
       } else {
         showToast({ style: Toast.Style.Success, title: "Image beautifier opened!" });
+        closeMainWindow();
+        popToRoot();
       }
     });
   }

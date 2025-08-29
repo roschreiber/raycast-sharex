@@ -1,4 +1,4 @@
-import { getPreferenceValues, showToast, Toast, closeMainWindow } from "@raycast/api";
+import { closeMainWindow, getPreferenceValues, showToast, Toast } from "@raycast/api";
 import { execFile } from "child_process";
 
 type Preferences = { sharexPath: string };
@@ -11,11 +11,11 @@ export default async function Command() {
     return;
   }
   await closeMainWindow();
-  execFile(sharexPath, ["-OpenScreenshotsFolder"], (error) => {
+  execFile(sharexPath, ["-ClipboardViewer"], (error) => {
     if (error) {
       showToast({ style: Toast.Style.Failure, title: "Error running sharex", message: error.message });
     } else {
-      showToast({ style: Toast.Style.Success, title: "Opened Screenshots folder" });
+      showToast({ style: Toast.Style.Success, title: "Opened clipboard viewer" });
     }
   });
 }

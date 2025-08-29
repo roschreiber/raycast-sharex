@@ -1,4 +1,4 @@
-import { ActionPanel, Action, Form, getPreferenceValues, showToast, Toast } from "@raycast/api";
+import { ActionPanel, Action, Form, getPreferenceValues, showToast, Toast, closeMainWindow, popToRoot } from "@raycast/api";
 import { execFile } from "child_process";
 import fs from "fs";
 
@@ -58,7 +58,11 @@ if (useRaycastForms) {
           title: "Error running ShareX",
           message: error.message,
         });
-      } 
+      } else {
+        showToast({ style: Toast.Style.Success, title: "QR code GUI opened" });
+        closeMainWindow();
+        popToRoot();
+      }
     });
   }
 }

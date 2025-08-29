@@ -15,7 +15,7 @@ export default async function Command() {
     if (error) {
       showToast({ style: Toast.Style.Failure, title: "Error running sharex", message: error.message });
     } else {
-      showToast({ style: Toast.Style.Success, title: "opened ShareX" });
+      showToast({ style: Toast.Style.Success, title: "Opened history viewer" });
     }
   });
 }
