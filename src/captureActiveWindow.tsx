@@ -19,5 +19,4 @@ export default async function Command() {
       showToast({ style: Toast.Style.Success, title: "Screenshot taken" });
     }
   });
-};
-
+}
