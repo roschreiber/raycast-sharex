@@ -9,6 +9,7 @@
   "platforms": [
     "Windows"
   ],
+  "categories": ["Applications", "Design Tools", "System"],
   "preferences": [
     {
       "name": "sharexPath",
@@ -148,7 +149,7 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.101.1",
+    "@raycast/api": "^1.102.6",
     "@raycast/utils": "^1.17.0"
   },
   "devDependencies": {
