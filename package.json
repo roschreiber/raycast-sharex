@@ -113,13 +113,13 @@
     },
     {
       "name": "imageEditor",
-      "title": "Open image editor",
+      "title": "Open Image Editor",
       "description": "Opens ShareX's built in image editor.",
       "mode": "view"
     },
     {
       "name": "imageBeautifier",
-      "title": "Open image beautifier",
+      "title": "Open Image Beautifier",
       "description": "Opens ShareX's image beautifier.",
       "mode": "view"
     },
